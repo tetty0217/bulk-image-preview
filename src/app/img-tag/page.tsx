@@ -1,10 +1,9 @@
 "use client";
 
 import { Box, Button, Grid, Stack, Typography } from "@/components/ui";
-import Image from "next/image";
 import { useState } from "react";
 
-export default function Home() {
+export default function Page() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +35,7 @@ export default function Home() {
           align="center"
           sx={{ color: "white" }}
         >
-          Next/Image Preview
+          Img Tag Preview
         </Typography>
         <form
           onSubmit={handleSubmit}
@@ -78,11 +77,14 @@ export default function Home() {
                           paddingBottom: "100%",
                         }}
                       >
-                        <Image
+                        <img
                           src={image}
                           alt={`Selected ${index}`}
-                          fill
-                          style={{ objectFit: "cover" }}
+                          style={{
+                            objectFit: "contain",
+                            width: "100%",
+                            height: "100%",
+                          }}
                         />
                       </Box>
                     </Grid>

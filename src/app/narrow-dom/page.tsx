@@ -4,7 +4,7 @@ import { Box, Button, Grid, Stack, Typography } from "@/components/ui";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Home() {
+export default function Page() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +36,7 @@ export default function Home() {
           align="center"
           sx={{ color: "white" }}
         >
-          Next/Image Preview
+          Narrow Image Preview
         </Typography>
         <form
           onSubmit={handleSubmit}
@@ -67,7 +67,7 @@ export default function Home() {
         {selectedImages.length > 0 && (
           <Box sx={{ overflowY: "auto", maxHeight: "600px" }}>
             <Grid container spacing={2} columns={3}>
-              {selectedImages.map((image, index) => {
+              {selectedImages.slice(0, 3).map((image, index) => {
                 if (image) {
                   return (
                     <Grid key={image} size={1}>
