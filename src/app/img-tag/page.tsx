@@ -19,6 +19,7 @@ export default function Page() {
     event.preventDefault();
     alert(`Form submitted with images: ${selectedImages.join(", ")}`);
   };
+  
 
   return (
     <Stack sx={{ gap: 2, flexDirection: "column" }}>
