@@ -1,8 +1,8 @@
 "use client";
 
+import { Box, Button, Grid, Stack, Typography } from "@/components/ui";
 import Image from "next/image";
 import { useState } from "react";
-import styles from "./page.module.css";
 
 export default function Home() {
 	const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -22,85 +22,58 @@ export default function Home() {
 	};
 
 	return (
-		<div className={styles.page}>
-			<main className={styles.main}>
-				<div
+		<Stack sx={{ gap: 2, flexDirection: "column" }}>
+			<Stack
+				sx={{
+					flexDirection: "column",
+					alignItems: "center",
+					gap: 2,
+				}}
+			>
+				<Typography
+					variant="h1"
+					fontSize="large"
+					align="center"
+					sx={{ color: "white" }}
+				>
+					Preview Form
+				</Typography>
+				<form
+					onSubmit={handleSubmit}
 					style={{
 						display: "flex",
-						flexDirection: "column",
+						justifyContent: "center",
+						alignItems: "center",
 					}}
 				>
-					<h1
-						style={{
-							margin: 0,
-							width: "100%",
-							textAlign: "center",
-							color: "white",
-						}}
-					>
-						Preview Form
-					</h1>
-					<form
-						onSubmit={handleSubmit}
-						style={{
-							display: "flex",
-							justifyContent: "center",
-							alignItems: "center",
-						}}
-					>
-						<input
-							type="file"
-							accept="image/*"
-							multiple
-							onChange={handleImageChange}
-							style={{ display: "none" }}
-							id="fileInput"
-						/>
-						<label
-							htmlFor="fileInput"
-							style={{
-								padding: "10px 20px",
-								display: "inline-block",
-								width: "100%",
-								borderRadius: "5px",
-								backgroundColor: "#007bff",
-								textAlign: "center",
-								color: "white",
-								cursor: "pointer",
-							}}
-						>
-							画像を追加する
-						</label>
-					</form>
-				</div>
+					<input
+						type="file"
+						accept="image/*"
+						multiple
+						onChange={handleImageChange}
+						style={{ display: "none" }}
+						id="fileInput"
+					/>
+					<Button fullWidth variant="contained">
+						<label htmlFor="fileInput">画像を追加する</label>
+					</Button>
+				</form>
+			</Stack>
+			<Box sx={{ overflow: "hidden" }}>
+				<Typography variant="h2" fontSize="large" align="center">
+					Selected Images
+				</Typography>
+
 				{selectedImages.length > 0 && (
-					<div
-						style={{
-							overflow: "hidden",
-						}}
-					>
-						<h2>Selected Images</h2>
-						<div
-							style={{
-								overflowY: "auto", 
-								maxHeight: "600px",
-							}}
-						>
-							<div
-								style={{
-									display: "grid",
-									gridTemplateColumns: "repeat(3, 1fr)",
-									gap: "10px",
-								}}
-							>
-								{selectedImages.map((image, index) => (
-									<div
-										key={image}
-										style={{
+					<Box sx={{ overflowY: "auto", maxHeight: "600px" }}>
+						<Grid container spacing={2} columns={3}>
+							{selectedImages.map((image, index) => (
+								<Grid key={image} size={1}>
+									<Box
+										sx={{
 											position: "relative",
-											listStyleType: "none",
 											width: "100%",
-											paddingBottom: "100%", // 正方形にするための高さ
+											paddingBottom: "100%",
 										}}
 									>
 										<Image
@@ -109,13 +82,13 @@ export default function Home() {
 											fill
 											style={{ objectFit: "cover" }}
 										/>
-									</div>
-								))}
-							</div>
-						</div>
-					</div>
+									</Box>
+								</Grid>
+							))}
+						</Grid>
+					</Box>
 				)}
-			</main>
-		</div>
+			</Box>
+		</Stack>
 	);
 }
