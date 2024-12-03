@@ -80,6 +80,7 @@ export default function Page() {
                         <img
                           src={image}
                           alt={`Selected ${index}`}
+                          loading="lazy"
                           style={{
                             objectFit: "contain",
                             width: "100%",
