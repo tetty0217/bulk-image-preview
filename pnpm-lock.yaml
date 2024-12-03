@@ -17,6 +17,9 @@ importers:
       '@mui/material':
         specifier: 6.1.9
         version: 6.1.9(@emotion/react@11.13.5(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106))(@emotion/styled@11.13.5(@emotion/react@11.13.5(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106))(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106))(@types/react@18.3.12)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
+      blueimp-load-image:
+        specifier: 5.16.0
+        version: 5.16.0
       next:
         specifier: 15.0.3
         version: 15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -30,6 +33,9 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
+      '@types/blueimp-load-image':
+        specifier: 5.16.6
+        version: 5.16.6
       '@types/node':
         specifier: 20.17.9
         version: 20.17.9
@@ -459,6 +465,9 @@ packages:
   '@swc/helpers@0.5.13':
     resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
 
+  '@types/blueimp-load-image@5.16.6':
+    resolution: {integrity: sha512-e7s6CdDCUoBQdCe62Q6OS+DF68M8+ABxCEMh2Isjt4Fl3xuddljCHMN8mak48AMSVGGwUUtNRaZbkzgL5PEWew==}
+
   '@types/node@20.17.9':
     resolution: {integrity: sha512-0JOXkRyLanfGPE2QRCwgxhzlBAvaRdCNMcvbd7jFfpmD4eEXll7LRwy5ymJmyeZqk7Nh7eD2LeUyQ68BbndmXw==}
 
@@ -480,6 +489,9 @@ packages:
   babel-plugin-macros@3.1.0:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
+
+  blueimp-load-image@5.16.0:
+    resolution: {integrity: sha512-3DUSVdOtlfNRk7moRZuTwDmA3NnG8KIJuLcq3c0J7/BIr6X3Vb/EpX3kUH1joxUhmoVF4uCpDfz7wHkz8pQajA==}
 
   busboy@1.6.0:
     resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
@@ -1131,6 +1143,8 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  '@types/blueimp-load-image@5.16.6': {}
+
   '@types/node@20.17.9':
     dependencies:
       undici-types: 6.19.8
@@ -1157,6 +1171,8 @@ snapshots:
       '@babel/runtime': 7.26.0
       cosmiconfig: 7.1.0
       resolve: 1.22.8
+
+  blueimp-load-image@5.16.0: {}
 
   busboy@1.6.0:
     dependencies:
