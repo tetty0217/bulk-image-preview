@@ -5,32 +5,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
-  const [selectedImages, setSelectedImages] = useState<
-    { index: number; file: File; image: string | undefined }[]
-  >([]);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const imageContentTypes = [
-        "image/png",
-        "image/jpeg",
-        "image/gif",
-        "image/bmp",
-        "image/webp",
-        "image/svg+xml",
-        "image/x-icon",
-      ];
-
-      const imageUrls = Array.from(event.target.files).map((file, index) => {
-        if (imageContentTypes.includes(file.type)) {
-          return { index, file, image: URL.createObjectURL(file) };
-        }
-        return {
-          index,
-          file,
-          image: undefined,
-        };
-      });
+      const imageUrls = Array.from(event.target.files).map((file) =>
+        URL.createObjectURL(file),
+      );
       setSelectedImages(imageUrls);
     }
   };
@@ -86,10 +67,10 @@ export default function Home() {
         {selectedImages.length > 0 && (
           <Box sx={{ overflowY: "auto", maxHeight: "600px" }}>
             <Grid container spacing={2} columns={3}>
-              {selectedImages.map(({ index, file, image }) => {
+              {selectedImages.map((image, index) => {
                 if (image) {
                   return (
-                    <Grid key={index} size={1}>
+                    <Grid key={image} size={1}>
                       <Box
                         sx={{
                           position: "relative",
