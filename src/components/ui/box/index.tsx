@@ -4,9 +4,9 @@ import * as React from "react";
 import { forwardRef } from "react";
 
 export const Box = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
-	return (
-		<_Box ref={ref} {...props}>
-			{props.children}
-		</_Box>
-	);
+  return (
+    <_Box ref={ref} {...props}>
+      {props.children}
+    </_Box>
+  );
 });

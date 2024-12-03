@@ -4,11 +4,11 @@ import * as React from "react";
 import { forwardRef } from "react";
 
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
-	(props, ref) => {
-		return (
-			<_Container ref={ref} {...props}>
-				{props.children}
-			</_Container>
-		);
-	},
+  (props, ref) => {
+    return (
+      <_Container ref={ref} {...props}>
+        {props.children}
+      </_Container>
+    );
+  },
 );
